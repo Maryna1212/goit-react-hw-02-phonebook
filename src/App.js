@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import ContactList from './components/ContactList/ContactList';
+import Form from './components/Form/Form';
 
 class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
-    name: '',
-    number: '',
   };
 
   deleteContact = contactId => {
@@ -20,48 +14,21 @@ class App extends Component {
     }));
   };
 
+  formSubmitHandler = data => {
+    console.log(data);
+  };
+
   render() {
     const { contacts } = this.state;
 
     return (
-      <>
+      <div>
         <h1>Phonebook</h1>
-        <input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-
+        <Form onSubmit={this.formSubmitHandler} />
         <ContactList contacts={contacts} onDeleteContact={this.deleteContact} />
-      </>
+      </div>
     );
   }
 }
 
 export default App;
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }

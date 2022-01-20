@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ContactList from './components/ContactList/ContactList';
+import Contacts from './components/Contacts/Contacts';
 import Form from './components/Form/Form';
 import Filter from './components/Filter/Filter';
 
@@ -39,7 +39,7 @@ class App extends Component {
         <Form onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList contacts={contacts} onDeleteContact={this.deleteContact} />
+        <Contacts contacts={contacts} onDeleteContact={this.deleteContact} />
       </div>
     );
   }

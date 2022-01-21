@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import { FormContainer } from './Form.styled';
+import { FormContainer, FormLabel, FormInput, FormButton } from './Form.styled';
 
 class Form extends Component {
   state = {
@@ -35,9 +35,9 @@ class Form extends Component {
   render() {
     return (
       <FormContainer onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameInputId}>
+        <FormLabel htmlFor={this.nameInputId}>
           Name{' '}
-          <input
+          <FormInput
             type="text"
             name="name"
             value={this.state.name}
@@ -47,10 +47,10 @@ class Form extends Component {
             onChange={this.handleChange}
             id={this.nameInputId}
           />
-        </label>
-        <label htmlFor={this.numberInputId}>
+        </FormLabel>
+        <FormLabel htmlFor={this.numberInputId}>
           Number{' '}
-          <input
+          <FormInput
             type="tel"
             name="number"
             value={this.state.number}
@@ -60,8 +60,8 @@ class Form extends Component {
             onChange={this.handleChange}
             id={this.numberInputId}
           />
-        </label>
-        <button type="submit">Add contact</button>
+        </FormLabel>
+        <FormButton type="submit">Add contact</FormButton>
       </FormContainer>
     );
   }
